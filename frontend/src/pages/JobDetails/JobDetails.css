@@ -1,0 +1,27 @@
+.job-.job-details {
+
+    padding: 2rem;
+    background-color: #121212;
+    border-radius: 8px;
+    margin: 2rem;
+    color: var(--color-text);
+}
+
+.job-details h1 {
+  color: var(--color-white);
+}
+
+.apply-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.apply-link:hover {
+  background-color: var(--color-accent);
+}

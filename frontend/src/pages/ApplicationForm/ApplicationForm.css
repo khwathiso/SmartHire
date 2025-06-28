@@ -1,0 +1,41 @@
+.application-form {
+  padding: 2rem;
+  max-width: 600px;
+  margin: auto;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  color: var(--color-text);
+}
+
+.application-form h2 {
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.application-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.application-form input {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: #2a2a2a;
+  color: var(--color-white);
+}
+
+.application-form button {
+  background-color: var(--color-primary);
+  border: none;
+  color: var(--color-white);
+  padding: 0.7rem;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.application-form button:hover {
+  background-color: var(--color-accent);
+}
