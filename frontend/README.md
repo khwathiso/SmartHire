@@ -34,7 +34,7 @@ ats-frontend/
 │
 ├── src/
 │ ├── components/ # Reusable UI components (Button, Header, JobCard, etc.)
-│ ├── pages/ # Page components (Home, JobDetails, ApplicationForm)
+│ ├── pages/ # Page components (Home, JobDetails, ApplicationForm, Login, register)
 │ ├── redux/ # Redux store setup and slices (jobs, applicants)
 │ ├── styles/ # CSS files (global styles and theme variables)
 │ ├── App.jsx # Main app component with routing

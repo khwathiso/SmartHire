@@ -1,0 +1,71 @@
+.landing-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.4; /* Darkens the background a bit */
+}
+
+.hero {
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--color-accent);
+}
+
+.cta-button.outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+}
+
+.cta-button.outline:hover {
+  background-color: var(--color-primary);
+}
