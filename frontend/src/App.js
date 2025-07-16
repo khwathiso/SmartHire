@@ -9,6 +9,8 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./pages/Landing/Landing";
 import Footer from "./components/Footer/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
       </main>
 
       <Footer />
+
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 }

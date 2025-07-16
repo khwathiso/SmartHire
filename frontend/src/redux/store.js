@@ -4,7 +4,7 @@ import applicantsReducer from './slices/applicantsSlice';
 import authReducer from './slices/authSlice'; 
 
 
-export const store = configureStore({
+const store = configureStore({
 
     reducer : {
         jobs: jobsReducer,

@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Jobs.css';
 import JobCard from '../../components/JobCard/JobCard';
 import { useSelector } from 'react-redux';
+import axios from '../../api/axios';
+
 
 export default function Jobs() {
-  const jobs = useSelector((state) => state.jobs.jobsList);
+  const [jobs, setJobs] = useState([]);
+
+useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await axios.get('jobs/');
+        setJobs(response.data);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
 
   return (
     <div className="jobs-container">

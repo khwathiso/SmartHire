@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Auth.css';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+
 import { loginUser } from '../../redux/slices/authSlice';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -19,9 +21,14 @@ export default function Login() {
     e.preventDefault();
 
     // Simulate login
-    dispatch(loginUser({ email: form.email }));
-    navigate(from, { replace: true });
+   dispatch(loginUser({ email: form.email, password: form.password }))
+    .unwrap()
+    .then(() => navigate(from, { replace: true }))
+    .catch((err) => {
+         toast.error(err?.error || 'Login failed. Check credentials and try again.');
+      });
   };
+
 
   return (
     <div className="auth-container">

@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './Auth.css';
+import axios from '../../api/axios';
+import { toast } from 'react-toastify';
+
+
 
 export default function Register() {
   const [form, setForm] = useState({
@@ -13,15 +17,23 @@ export default function Register() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
     e.preventDefault();
     if (form.password !== form.confirmPassword) {
       alert("Passwords don't match!");
       return;
     }
 
-    console.log('Register Data:', form);
-    alert('Registration submitted');
+    try {
+      await axios.post('users/register/', {
+        full_name: form.fullName,
+        email: form.email,
+        password: form.password,
+      });
+      toast.success('Registration successful! You can now log in.');
+    } catch (error) {
+      toast.error(error.response?.data?.email || 'Registration failed');
+    }
   };
 
   return (
