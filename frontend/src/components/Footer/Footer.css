@@ -4,16 +4,10 @@
   padding: 1.5rem 2rem;
   font-size: 0.9rem;
   width: 100%;
-  /* REMOVE THESE LINES, Flexbox will handle the positioning: */
-  /* position: fixed; */
-  /* bottom: 0; */
-  /* left: 0; */
-  /* z-index: 10; */
   border-top: 1px solid var(--color-border);
-  flex-shrink: 0; /* Prevents the footer from shrinking if content is too large */
+  flex-shrink: 0;
 }
 
-/* Keep the rest of your footer styling as is */
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -48,14 +42,13 @@
   font-size: 0.85rem;
 }
 
-/* Add any media queries you had for responsiveness */
 @media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer-section {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }

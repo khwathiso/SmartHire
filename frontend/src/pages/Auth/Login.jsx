@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Auth.css';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-
 import { loginUser } from '../../redux/slices/authSlice';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || 'dashboard';
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -19,17 +18,21 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Simulate login
-   dispatch(loginUser({ email: form.email, password: form.password }))
-    .unwrap()
-    .then(() => navigate(from, { replace: true }))
-    .catch((err) => {
-         toast.error(err?.error || 'Login failed. Check credentials and try again.');
+      dispatch(loginUser({ email: form.email, password: form.password }))
+      .unwrap()
+      .then((res) => {
+        if (from) {
+          navigate(from, { replace: true });
+        } else if (res.role === 'poster') {
+          navigate('/poster-dashboard', { replace: true });
+        } else {
+          navigate('/seeker-dashboard', { replace: true });
+        }
+      })
+      .catch(() => {
+        toast.error('Login failed. Check credentials and try again.');
       });
-  };
-
-
+  }
   return (
     <div className="auth-container">
       <h2>Login</h2>

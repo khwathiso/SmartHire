@@ -7,15 +7,16 @@ import { toast } from 'react-toastify';
 
 export default function Register() {
   const [form, setForm] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  fullName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  role: 'seeker' 
+})
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+ const handleChange = (e) => {
+  setForm({ ...form, [e.target.name]: e.target.value });
+};
 
    const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,12 +24,18 @@ export default function Register() {
       alert("Passwords don't match!");
       return;
     }
+    if (!form.role){
+      alert('Please select a role');
+    return;
+    }
 
     try {
       await axios.post('users/register/', {
         full_name: form.fullName,
         email: form.email,
         password: form.password,
+        role: form.role,
+
       });
       toast.success('Registration successful! You can now log in.');
     } catch (error) {
@@ -40,6 +47,11 @@ export default function Register() {
     <div className="auth-container">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
+      <select name="role" onChange={handleChange} required>
+        <option value="">Select Role</option>
+        <option value="seeker">Job Seeker</option>
+        <option value="poster">Job Poster</option>
+      </select>
         <input
           name="fullName"
           type="text"

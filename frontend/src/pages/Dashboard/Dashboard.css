@@ -1,0 +1,88 @@
+:root {
+  --primary-color: #0052cc;
+  --secondary-color: #edf2f7;
+  --text-color: #2d3748;
+  --bg-color: #f7fafc;
+  --card-bg: #ffffff;
+  --border-radius: 8px;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.auth-container,
+.dashboard,
+.form-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background-color: #003d99;
+}
+
+.apply-link,
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--primary-color);
+  margin-top: 10px;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.job-list,
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .job-list,
+  .card-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

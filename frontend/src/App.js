@@ -9,8 +9,12 @@ import ProtectedRoute from "./utils/ProtectedRoute";
 import Navbar from "./components/Navbar/Navbar";
 import Landing from "./pages/Landing/Landing";
 import Footer from "./components/Footer/Footer";
+import SeekerDashboard from "./pages/Dashboard/SeekerDashboard";
+import PosterDashboard from "./pages/Dashboard/PosterDashboard";
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css'; 
 
 function App() {
   return (
@@ -25,8 +29,25 @@ function App() {
           <Route
             path="/apply/:jobId"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute allowedRoles={['seeker']}>
                 <ApplicationForm />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/seeker-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['seeker']}>
+                <SeekerDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/poster-dashboard"
+            element={
+              <ProtectedRoute allowedRoles={['poster']}>
+                <PosterDashboard />
               </ProtectedRoute>
             }
           />

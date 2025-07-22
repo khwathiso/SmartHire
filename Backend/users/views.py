@@ -16,5 +16,10 @@ class LoginView(APIView):
         serializer = LoginSerializer(data=request.data)
         if serializer.is_valid():
             user = serializer.validated_data
-            return Response({'message': 'Login successful', 'email': user.email})
+            return Response({
+                'message': 'Login successful',
+                'email': user.email,
+                'role': user.role,  
+                'full_name': user.full_name
+            })       
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
